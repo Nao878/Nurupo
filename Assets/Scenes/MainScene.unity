@@ -473,16 +473,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kamishibaiImages:
-  - {fileID: 21300000, guid: c0afff08bbed95446a43160946d46df9, type: 3}
-  - {fileID: 21300000, guid: 5b3d29e5495f5ee4f83d9aedef612729, type: 3}
-  - {fileID: 21300000, guid: c0afff08bbed95446a43160946d46df9, type: 3}
-  - {fileID: 21300000, guid: 5b3d29e5495f5ee4f83d9aedef612729, type: 3}
-  - {fileID: 21300000, guid: c0afff08bbed95446a43160946d46df9, type: 3}
-  - {fileID: 21300000, guid: 5b3d29e5495f5ee4f83d9aedef612729, type: 3}
-  - {fileID: 21300000, guid: c0afff08bbed95446a43160946d46df9, type: 3}
-  - {fileID: 21300000, guid: 5b3d29e5495f5ee4f83d9aedef612729, type: 3}
-  - {fileID: 21300000, guid: c0afff08bbed95446a43160946d46df9, type: 3}
-  - {fileID: 21300000, guid: 5b3d29e5495f5ee4f83d9aedef612729, type: 3}
+  - {fileID: 21300000, guid: 8bf5e252a3380f04686a73ff59671d98, type: 3}
+  - {fileID: 21300000, guid: af72214c4971241499ccef85db82de42, type: 3}
+  - {fileID: 21300000, guid: 6c0650f8b59ffaf42ad4177b9a1f2142, type: 3}
+  - {fileID: 21300000, guid: 91b3df2be27ca334bab635f528915deb, type: 3}
+  - {fileID: 21300000, guid: 8bf5e252a3380f04686a73ff59671d98, type: 3}
+  - {fileID: 21300000, guid: af72214c4971241499ccef85db82de42, type: 3}
+  - {fileID: 21300000, guid: 91b3df2be27ca334bab635f528915deb, type: 3}
+  - {fileID: 21300000, guid: 6c0650f8b59ffaf42ad4177b9a1f2142, type: 3}
+  - {fileID: 21300000, guid: 91b3df2be27ca334bab635f528915deb, type: 3}
+  - {fileID: 21300000, guid: 6c0650f8b59ffaf42ad4177b9a1f2142, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
