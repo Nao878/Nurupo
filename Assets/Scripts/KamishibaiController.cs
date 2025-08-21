@@ -61,7 +61,7 @@ public class KamishibaiController : MonoBehaviour
             hasScoredOnCurrentImage = false;
 
             // 5•b‘Ò‚Â
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(1.0f);
 
             // ŽŸ‚Ì‰æ‘œ‚Ö
             currentImageIndex++;
