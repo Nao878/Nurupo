@@ -29,11 +29,12 @@ public class KamishibaiController : MonoBehaviour
         StartCoroutine(PlayKamishibai());
     }
 
-    private void Update()
+    // ボタンクリック時に呼ばれるメソッド
+    public void OnScoreButtonClick()
     {
         // 現在の画像が2枚目(インデックス1)か4枚目(インデックス3)であるかを確認
-        // かつ、Enterキーが押されたか、そして今回の画像でまだ得点が入っていないかを確認
-        if ((currentImageIndex == 1 || currentImageIndex == 3) && Input.GetKeyDown(KeyCode.Return) && !hasScoredOnCurrentImage)
+        // かつ、今回の画像でまだ得点が入っていないかを確認
+        if ((currentImageIndex == 1 || currentImageIndex == 3) && !hasScoredOnCurrentImage)
         {
             // 得点を加算
             score += 100; // 例として100点加算
@@ -61,7 +62,7 @@ public class KamishibaiController : MonoBehaviour
             hasScoredOnCurrentImage = false;
 
             // 5秒待つ
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.0f); // 元のプログラムに合わせて5.0fに修正しました。
 
             // 次の画像へ
             currentImageIndex++;
