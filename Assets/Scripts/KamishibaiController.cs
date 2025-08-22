@@ -20,10 +20,15 @@ public class KamishibaiController : MonoBehaviour
     // 各画像で得点が入ったかを判定するフラグ
     private bool hasScoredOnCurrentImage = false;
 
+    [SerializeField] private AudioClip switchSound; // 効果音をInspectorでセット
+    [SerializeField] private AudioClip buttonSound; // ボタン用効果音をInspectorでセット
+    private AudioSource audioSource; // AudioSource参照
+
     private void Start()
     {
         // Imageコンポーネントを取得
         displayImage = GetComponent<Image>();
+        audioSource = GetComponent<AudioSource>(); // AudioSource取得
 
         // Coroutineを開始して、画像の切り替え処理を始める
         StartCoroutine(PlayKamishibai());
@@ -32,6 +37,11 @@ public class KamishibaiController : MonoBehaviour
     // ボタンクリック時に呼ばれるメソッド
     public void OnScoreButtonClick()
     {
+        // ボタン効果音を再生
+        if (buttonSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(buttonSound);
+        }
         // まだこの画像で得点が変わっていない場合のみ処理
         if (!hasScoredOnCurrentImage)
         {
@@ -69,8 +79,14 @@ public class KamishibaiController : MonoBehaviour
             // 1つの画像が表示されるたびに、得点フラグをリセットする
             hasScoredOnCurrentImage = false;
 
-            // 5秒待つ
-            yield return new WaitForSeconds(1.0f); // 元のプログラムに合わせて5.0fに修正しました。
+            // 効果音を再生
+            if (switchSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(switchSound);
+            }
+
+            // 1秒待つ
+            yield return new WaitForSeconds(1.0f);
 
             // 次の画像へ
             currentImageIndex++;
