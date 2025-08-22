@@ -32,14 +32,22 @@ public class KamishibaiController : MonoBehaviour
     // ボタンクリック時に呼ばれるメソッド
     public void OnScoreButtonClick()
     {
-        // 現在の画像が2枚目(インデックス1)か4枚目(インデックス3)であるかを確認
-        // かつ、今回の画像でまだ得点が入っていないかを確認
-        if ((currentImageIndex == 1 || currentImageIndex == 3) && !hasScoredOnCurrentImage)
+        // まだこの画像で得点が変わっていない場合のみ処理
+        if (!hasScoredOnCurrentImage)
         {
-            // 得点を加算
-            score += 100; // 例として100点加算
-            hasScoredOnCurrentImage = true; // この画像ではもう得点できないようにフラグを立てる
-            Debug.Log("得点！現在のスコア: " + score);
+            if (currentImageIndex == 1 || currentImageIndex == 3)
+            {
+                // 加点
+                score += 100; // 例として100点加算
+                Debug.Log("得点！現在のスコア: " + score);
+            }
+            else
+            {
+                // 減点
+                score -= 100; // 例として100点減点
+                Debug.Log("お手付き！現在のスコア: " + score);
+            }
+            hasScoredOnCurrentImage = true; // この画像ではもう得点・減点できないようにフラグを立てる
         }
     }
 
