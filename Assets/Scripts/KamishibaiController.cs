@@ -53,14 +53,14 @@ public class KamishibaiController : MonoBehaviour
 
     private IEnumerator PlayKamishibai()
     {
-        // 登録されている画像が10枚であることを確認
-        if (kamishibaiImages.Length != 10)
+        // 登録されている画像が20枚であることを確認
+        if (kamishibaiImages.Length != 20)
         {
-            Debug.LogError("画像は10枚登録してください。");
+            Debug.LogError("画像は20枚登録してください。");
             yield break;
         }
 
-        // 10枚の画像を順番に表示
+        // 20枚の画像を順番に表示
         while (currentImageIndex < kamishibaiImages.Length)
         {
             // 現在のインデックスの画像を表示
