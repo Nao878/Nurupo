@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class KamishibaiController : MonoBehaviour
 {
@@ -24,11 +25,16 @@ public class KamishibaiController : MonoBehaviour
     [SerializeField] private AudioClip buttonSound; // ボタン用効果音をInspectorでセット
     private AudioSource audioSource; // AudioSource参照
 
+    [SerializeField] private TMP_Text scoreText; // スコア表示用TextMeshPro
+
+    private Coroutine scoreChangeCoroutine; // スコア表示用コルーチン参照
+
     private void Start()
     {
         // Imageコンポーネントを取得
         displayImage = GetComponent<Image>();
-        audioSource = GetComponent<AudioSource>(); // AudioSource取得
+        audioSource = GetComponent<AudioSource>();
+        UpdateScoreText(""); // 初期スコア表示
 
         // Coroutineを開始して、画像の切り替え処理を始める
         StartCoroutine(PlayKamishibai());
@@ -50,15 +56,41 @@ public class KamishibaiController : MonoBehaviour
                 // 加点
                 score += 100; // 例として100点加算
                 Debug.Log("得点！現在のスコア: " + score);
+                UpdateScoreText("+100");
             }
             else
             {
                 // 減点
                 score -= 100; // 例として100点減点
                 Debug.Log("お手付き！現在のスコア: " + score);
+                UpdateScoreText("-100");
             }
             hasScoredOnCurrentImage = true; // この画像ではもう得点・減点できないようにフラグを立てる
         }
+    }
+
+    private void UpdateScoreText(string change)
+    {
+        if (string.IsNullOrEmpty(change))
+        {
+            scoreText.text = $"スコア: {score}";
+        }
+        else
+        {
+            scoreText.text = $"スコア: {score}  ({change})";
+            if (scoreChangeCoroutine != null)
+            {
+                StopCoroutine(scoreChangeCoroutine);
+            }
+            scoreChangeCoroutine = StartCoroutine(ShowScoreChange());
+        }
+    }
+
+    private IEnumerator ShowScoreChange()
+    {
+        yield return new WaitForSeconds(1.0f);
+        scoreText.text = $"スコア: {score}";
+        scoreChangeCoroutine = null;
     }
 
     private IEnumerator PlayKamishibai()
@@ -93,5 +125,6 @@ public class KamishibaiController : MonoBehaviour
         }
 
         Debug.Log("紙芝居が終了しました。最終スコア: " + score);
+        scoreText.text = $"最終スコア: {score}";
     }
 }
