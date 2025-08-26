@@ -51,7 +51,7 @@ public class KamishibaiController : MonoBehaviour
         // ‚Ü‚¾‚±‚Ì‰æ‘œ‚Å“¾“_‚ª•Ï‚í‚Á‚Ä‚¢‚È‚¢ê‡‚Ì‚İˆ—
         if (!hasScoredOnCurrentImage)
         {
-            if (currentImageIndex == 3 || currentImageIndex == 6 || currentImageIndex == 8)
+            if (currentImageIndex == 3 || currentImageIndex == 6 || currentImageIndex == 8 || currentImageIndex == 22)
             {
                 // ‰Á“_
                 score += 100; // —á‚Æ‚µ‚Ä100“_‰ÁZ
