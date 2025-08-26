@@ -51,7 +51,8 @@ public class KamishibaiController : MonoBehaviour
         // まだこの画像で得点が変わっていない場合のみ処理
         if (!hasScoredOnCurrentImage)
         {
-            if (currentImageIndex == 3 || currentImageIndex == 6 || currentImageIndex == 8 || currentImageIndex == 22)
+            if (currentImageIndex == 3 || currentImageIndex == 6 || currentImageIndex == 8 || currentImageIndex == 22 ||
+                currentImageIndex == 37 || currentImageIndex == 43 || currentImageIndex == 44 || currentImageIndex == 51)
             {
                 // 加点
                 score += 100; // 例として100点加算
@@ -95,14 +96,14 @@ public class KamishibaiController : MonoBehaviour
 
     private IEnumerator PlayKamishibai()
     {
-        // 登録されている画像が40枚であることを確認
-        if (kamishibaiImages.Length != 40)
+        // 登録されている画像が53枚であることを確認
+        if (kamishibaiImages.Length != 53)
         {
-            Debug.LogError("画像は40枚登録してください。");
+            Debug.LogError("画像は53枚登録してください。");
             yield break;
         }
 
-        // 40枚の画像を順番に表示
+        // 53枚の画像を順番に表示
         while (currentImageIndex < kamishibaiImages.Length)
         {
             // 現在のインデックスの画像を表示
